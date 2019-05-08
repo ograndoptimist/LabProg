@@ -1,5 +1,5 @@
 /*
-   Função que fornece o tamanho de um array de caracters.
+    Função que fornece o tamanho de um array de caracters.
  */
 int sizeOfArray(char string[])
 {
@@ -15,7 +15,7 @@ int sizeOfArray(char string[])
 
 
 /*
-   Função que imprime um array de caracters na tela.
+    Função que imprime um array de caracters na tela.
  */
 void printArray(char string[])
 {
@@ -40,6 +40,41 @@ void convertToUpper(char string[])
 	{
 		string[i] = toupper(string[i]);
 	}		
+}
+
+
+/*
+    Função que deixa apenas a primeira ocorrência de cada um desses caracteres
+ */
+void eliminateDuplicate(char string[])
+{
+	int i;
+	int j;
+	int soma;
+	int threshold = sizeOfArray(string);
+	char new_string[threshold];
+		
+	for(i = 0; i < threshold; i++)
+	{
+		soma = 0;
+		for(j = 0; j < threshold; j++)
+		{
+			if(i != j)
+			{
+				if(string[i] == string[j])
+				{
+					soma++;					
+				}
+			}				
+		}
+		if(soma > 0)
+		{
+			new_string[i] = string[i];
+		}
+	}	
+	
+	printArray(new_string);
+	string = new_string;
 }
 
 

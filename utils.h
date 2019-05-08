@@ -1,5 +1,3 @@
-#include <ctype.h>
-
 /*
    Função que fornece o tamanho de um array de caracters.
  */

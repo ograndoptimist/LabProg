@@ -86,6 +86,36 @@ void resizeString(char string[], int indice)
 }
 
 
+/*
+    Função que elimina todos os caracteres diferentes de letra, vírgula, ponto e espaço.    
+ */
+void preprocessString(char string[])
+{
+	int i;
+	int j;
+	int check = 0;
+	char specialCharacters[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+				    'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '.', ' ', ','};
+	
+	for(i = 0; i < sizeOfString(string); i++)
+	{
+		for(j = 0; j < sizeOfArray(specialCharacters); j++)
+		{
+			if(string[i] == specialCharacters[j])
+			{	
+				check = -1;
+				break;				
+			} else {
+				check = i;
+			}	
+		}
+		if(check >= 0)
+		{
+			string[check] = ' ';			
+		}			
+	}
+}
+
 
 /*
     Função que deixa apenas a primeira ocorrência de cada um desses caracteres
@@ -119,35 +149,4 @@ void eliminateDuplicate(char string[])
 	
 	printArray(new_string);
 	string = new_string;
-}
-
-
-/*
-    Função que elimina todos os caracteres diferentes de letra, vírgula, ponto e espaço.    
- */
-void preprocessString(char string[])
-{
-	int i;
-	int j;
-	int check = 0;
-	char specialCharacters[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
-				    'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '.', ' ', ','};
-	
-	for(i = 0; i < sizeOfString(string); i++)
-	{
-		for(j = 0; j < sizeOfArray(specialCharacters); j++)
-		{
-			if(string[i] == specialCharacters[j])
-			{	
-				check = -1;
-				break;				
-			} else {
-				check = i;
-			}	
-		}
-		if(check >= 0)
-		{
-			string[check] = ' ';			
-		}			
-	}
 }

@@ -107,3 +107,46 @@ void preprocessString(char string[])
 		}			
 	}
 }
+
+
+
+/*
+    Função que elimina um caracter especificado.    
+ */
+void retiraCaracter(char string[], char caracter)
+{
+	int i;
+	int tamanho = sizeOfArray(string);
+
+	for(i = 0; i < tamanho; i++)
+	{
+		if(string[i] == caracter)
+		{
+			resizeString(string, i);
+		}		
+	}
+}
+
+
+
+/*
+    Função que auxiliar para eliminar um caracter de uma string.    
+ */
+void resizeString(char string[], int indice)
+{
+	int i;
+	int tamanho = sizeOfArray(string);
+	char aux[tamanho];
+	
+	for(i = 0; i < tamanho; i++)
+	{
+		aux[i] = string[i];
+	}
+
+	for(i = indice; i < tamanho - 1; i++)
+	{
+		string[i] = aux[i + 1];
+	}
+
+	string[tamanho - 1] = '\0';
+}

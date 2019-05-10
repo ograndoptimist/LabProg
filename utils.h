@@ -43,6 +43,50 @@ void convertToUpper(char string[])
 }
 
 
+
+/*
+    Função que elimina um caracter especificado.    
+ */
+void eliminateCharacter(char string[], char caracter)
+{
+	int i;
+	int tamanho = sizeOfString(string);
+
+	for(i = 0; i < tamanho; i++)
+	{
+		if(string[i] == caracter)
+		{
+			resizeString(string, i);
+		}		
+	}
+}
+
+
+
+/*
+    Função que auxiliar para eliminar um caracter de uma string.    
+ */
+void resizeString(char string[], int indice)
+{
+	int i;
+	int tamanho = sizeOfString(string);
+	char aux[tamanho];
+	
+	for(i = 0; i < tamanho; i++)
+	{
+		aux[i] = string[i];
+	}
+
+	for(i = indice; i < tamanho - 1; i++)
+	{
+		string[i] = aux[i + 1];
+	}
+
+	string[tamanho - 1] = '\0';
+}
+
+
+
 /*
     Função que deixa apenas a primeira ocorrência de cada um desses caracteres
  */
@@ -106,47 +150,4 @@ void preprocessString(char string[])
 			string[check] = ' ';			
 		}			
 	}
-}
-
-
-
-/*
-    Função que elimina um caracter especificado.    
- */
-void eliminateCharacter(char string[], char caracter)
-{
-	int i;
-	int tamanho = sizeOfString(string);
-
-	for(i = 0; i < tamanho; i++)
-	{
-		if(string[i] == caracter)
-		{
-			resizeString(string, i);
-		}		
-	}
-}
-
-
-
-/*
-    Função que auxiliar para eliminar um caracter de uma string.    
- */
-void resizeString(char string[], int indice)
-{
-	int i;
-	int tamanho = sizeOfString(string);
-	char aux[tamanho];
-	
-	for(i = 0; i < tamanho; i++)
-	{
-		aux[i] = string[i];
-	}
-
-	for(i = indice; i < tamanho - 1; i++)
-	{
-		string[i] = aux[i + 1];
-	}
-
-	string[tamanho - 1] = '\0';
 }

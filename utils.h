@@ -1,7 +1,7 @@
 /*
     Função que fornece o tamanho de um array de caracters.
  */
-int sizeOfArray(char string[])
+int sizeOfString(char string[])
 {
 	int tamanho = 0;
 	
@@ -21,7 +21,7 @@ void printArray(char string[])
 {
 	int i;
 
-	for(i = 0; i < sizeOfArray(string); i++)
+	for(i = 0; i < sizeOfString(string); i++)
 	{
 		printf("%c", string[i]);
 	}
@@ -36,7 +36,7 @@ void convertToUpper(char string[])
 {
 	int i;
 
-	for(i = 0; i < sizeOfArray(string); i++)
+	for(i = 0; i < sizeOfString(string); i++)
 	{
 		string[i] = toupper(string[i]);
 	}		
@@ -51,7 +51,7 @@ void eliminateDuplicate(char string[])
 	int i;
 	int j;
 	int soma;
-	int threshold = sizeOfArray(string);
+	int threshold = sizeOfString(string);
 	char new_string[threshold];
 		
 	for(i = 0; i < threshold; i++)
@@ -89,7 +89,7 @@ void preprocessString(char string[])
 	char specialCharacters[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
 				    'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '.', ' ', ','};
 	
-	for(i = 0; i < sizeOfArray(string); i++)
+	for(i = 0; i < sizeOfString(string); i++)
 	{
 		for(j = 0; j < sizeOfArray(specialCharacters); j++)
 		{
@@ -116,7 +116,7 @@ void preprocessString(char string[])
 void retiraCaracter(char string[], char caracter)
 {
 	int i;
-	int tamanho = sizeOfArray(string);
+	int tamanho = sizeOfString(string);
 
 	for(i = 0; i < tamanho; i++)
 	{
@@ -135,7 +135,7 @@ void retiraCaracter(char string[], char caracter)
 void resizeString(char string[], int indice)
 {
 	int i;
-	int tamanho = sizeOfArray(string);
+	int tamanho = sizeOfString(string);
 	char aux[tamanho];
 	
 	for(i = 0; i < tamanho; i++)

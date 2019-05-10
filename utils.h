@@ -113,7 +113,7 @@ void preprocessString(char string[])
 /*
     Função que elimina um caracter especificado.    
  */
-void retiraCaracter(char string[], char caracter)
+void eliminateCharacter(char string[], char caracter)
 {
 	int i;
 	int tamanho = sizeOfString(string);
